@@ -5,6 +5,7 @@ import 'package:reddit_bloc_contacts/src/features/contact/bloc/contact_bloc.dart
 import 'package:reddit_bloc_contacts/src/features/contact/bloc/contact_event.dart';
 
 import '../bloc/contact_state.dart';
+import 'phone_display_widget.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({Key? key}) : super(key: key);
@@ -31,6 +32,9 @@ class ContactScreen extends StatelessWidget {
             itemBuilder: ((context, index) => ListTile(
                   title: Text(
                     state.contacts[index].contact.displayName,
+                  ),
+                  subtitle: PhoneDisplayWidget(
+                    phones: state.contacts[index].contact.phones,
                   ),
                 )),
           );
